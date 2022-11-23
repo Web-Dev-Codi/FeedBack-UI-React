@@ -8,7 +8,15 @@ function App() {
     { id: 4, text: 'comment four' },
     { id: 5, text: 'comment five' },
     { id: 6, text: 'comment six' }
-  ]
+  ];
+
+
+  const loading = false;
+  const showComments = false;
+
+  if (loading) {
+    return <h1>Loading...</h1>
+  }
 
   return (
     <div className="container">
@@ -19,7 +27,7 @@ function App() {
         <h3>Comments ({comments.length})</h3>
         <ul>
           {comments.map((id, index) => {
-            return <li key={index}>{id.text}</li>;
+            return <ul key={index}><li>{id.text}</li></ul>;
           })}
         </ul>
       </div>
