@@ -1,17 +1,22 @@
 import React from 'react';
-import { useState } from 'react';
+import { Card } from "./shared/Card"
 
-function Feedbackitem() {
-  const [rating, setRating] = useState(7);
-  const [text, setText] = useState('Example of feedback item');
+function Feedbackitem({ item }) {
+
+  // const handleClick = () => {
+  //   setRating(() => {
+  //     return 100;
+  //   })
+  // }
 
 
 
   return (
-    <div className='card'>
-      <div className="num-display">{rating}</div>
-      <div className="text-display">{text}</div>
-    </div>
+    <Card>
+      <div className="num-display">{item.rating}</div>
+      <div className="text-display">{item.text}</div>
+      {/* <button onClick={handleClick}>Click Me</button> */}
+    </Card>
   )
 }
 
