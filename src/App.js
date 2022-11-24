@@ -1,10 +1,12 @@
 import Header from "./components/Header";
+import FeedbackItem from "./components/FeedbackItem";
 
 function App() {
 
   return (
     <>
-      <Header text="Try Hard" />
+      <Header />
+      <FeedbackItem />
       <div className="container">
         <h1>Keep Going</h1>
 
