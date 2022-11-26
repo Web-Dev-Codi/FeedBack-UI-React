@@ -1,31 +1,28 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid'
 
 const FeedbackContext = createContext();
 
 export const FeedbackProvider = ({ children }) => {
-  const [feedback, setFeedback] = useState([
-    {
-      id: 1,
-      text: 'Yes anyone can code',
-      rating: 10
-    },
-    {
-      id: 2,
-      text: 'Take the time to improve yourself',
-      rating: 9
-    },
-    {
-      id: 3,
-      text: 'Stop at nothing',
-      rating: 8
-    }
-  ])
-
+  const [isLoading, setIsLoading] = useState(true)
+  const [feedback, setFeedback] = useState([])
   const [feedbackEdit, setFeedbackEdit] = useState({
     item: {},
     edit: false,
   });
+
+  useEffect(() => {
+    fetchFeedback()
+  }, [])
+
+  //fetch feedback from database backend
+  const fetchFeedback = async () => {
+    const response = await fetch(`/feedback?_sort=id&_order=desc`);
+    const data = await response.json();
+
+    setFeedback(data)
+    setIsLoading(false)
+  }
 
   // Deletes feedback
   const deleteFeedback = (id) => {
@@ -56,6 +53,7 @@ export const FeedbackProvider = ({ children }) => {
       value={{
         feedback,
         feedbackEdit,
+        isLoading,
         deleteFeedback,
         addFeedback,
         editFeedback,
