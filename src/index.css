@@ -131,9 +131,6 @@ input:focus {
   left: -10px;
 }
 
-.close {
-  margin-top: 4px;
-}
 
 .close,
 .edit {
@@ -160,11 +157,11 @@ input:focus {
 }
 
 .btn-primary {
-  background: #ff6a95;
+  background: #d80541;
 }
 
 .btn-secondary {
-  background: #ff6a95;
+  background: #111068
 }
 
 .btn:hover {

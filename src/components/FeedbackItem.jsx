@@ -5,8 +5,9 @@ import PropTypes from 'prop-types'
 import { useContext } from 'react'
 import FeedbackContext from '../context/FeedbackContext'
 
+
 function Feedbackitem({ item }) {
-  const { deleteFeedback } = useContext(FeedbackContext);
+  const { deleteFeedback, editFeedback } = useContext(FeedbackContext);
 
   return (
     <Card>
@@ -14,12 +15,12 @@ function Feedbackitem({ item }) {
       <button onClick={() => deleteFeedback(item.id)} className="close">
         <FaTimes color='purple' />
       </button>
-      <buton className="edit">
+      <button onClick={() => editFeedback(item)} className="edit" >
         <FaEdit color='purple' />
-      </buton>
+      </button>
       <div className="text-display">{item.text}</div>
       {/* <button onClick={handleClick}>Click Me</button> */}
-    </Card>
+    </Card >
   )
 };
 
