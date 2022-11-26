@@ -23,7 +23,7 @@ export const FeedbackProvider = ({ children }) => {
   ])
 
   const deleteFeedback = (id) => {
-    if (window.confirm('Are you sure you want to delete my good friend?')) {
+    if (window.confirm('Are you sure you want to delete this my good friend?')) {
       setFeedback(feedback.filter((item) => item.id !== id))
     }
 
